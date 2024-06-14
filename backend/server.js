@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 
 const workoutRoutes = require("./routes/workoutRoute");
-
+const userRoutes = require("./routes/UserRoute");
 const mongoose = require("mongoose");
 // the express app will be named app1
 const app1 = express();
@@ -17,7 +17,7 @@ app1.use((req, res, next) => {
 });
 
 app1.use("/api/workouts", workoutRoutes);
-
+app1.use("/api/users", userRoutes);
 //following is for establishing connection with mongodb database and then what should be done afterward
 mongoose
   .connect(process.env.MONGO_URI)
