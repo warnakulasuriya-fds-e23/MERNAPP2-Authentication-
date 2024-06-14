@@ -5,7 +5,14 @@ const CreateWebToken = (_id) => {
 };
 
 const login = async (req, res) => {
-  res.status(200).json({ mssg: "login request handled" });
+  const { email, password } = req.body;
+  try {
+    const createdUser = await User.login(email, password);
+    const createdToken = CreateWebToken(createdUser._id);
+    res.status(200).json({ email, createdToken });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 };
 
 const signup = async (req, res) => {

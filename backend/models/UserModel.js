@@ -48,7 +48,7 @@ userSchema.statics.login = async function (email, password) {
     );
   }
 
-  const returnedUser = this.findOne({ email });
+  const returnedUser = await this.findOne({ email });
   if (!returnedUser) throw Error("Incorrect Email Adress.");
 
   const matching = bcrypt.compare(password, returnedUser.password);
