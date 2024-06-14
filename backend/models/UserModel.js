@@ -41,4 +41,19 @@ userSchema.statics.signup = async function (email, password) {
   return createdUser;
 };
 
+userSchema.statics.login = async function (email, password) {
+  if (!email || !password) {
+    throw Error(
+      "No empty fields allowed, please fill in both password and email."
+    );
+  }
+
+  const returnedUser = this.findOne({ email });
+  if (!returnedUser) throw Error("Incorrect Email Adress.");
+
+  const matching = bcrypt.compare(password, returnedUser.password);
+  if (!matching) throw Error("Incorrect password");
+
+  return returnedUser;
+};
 module.exports = mongoose.model("user", userSchema);
