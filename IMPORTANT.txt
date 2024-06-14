@@ -1,0 +1,30 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+                                                    NOTE 1
+----------------------------------------------------------------------------------------------------------------------------------------
+NOTE 1 : Note about FRONTEND-BACKEND Connection
+ERROR MESSAGE:
+Access to fetch at 'http://localhost:4000/api/workouts/' from origin 'http://localhost:3000' has been blocked by 
+CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. 
+If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+DESCRIPTION:
+there is an access blocked issue when the frontend server running on localhost:3000 tries to access the backend server and its apis,
+that is running on localhost:4000.
+
+this type of request is termed a Cross Origin Request (COR)
+
+FIX:
+There are two options to fix this issue:
+    1. Add a package called CORS and configure it from that.
+    2. add a new property to the frontend package.json called proxy and set its value to "http://localhost:4000"
+
+supposedly, what the 2 method is easier.
+supposedly, what this method does is that any unrecognized request made by the frontend server will be routed through
+ the proxy that was specified. As a byproduct the access blocked issue gets resolved
+ that is why in the fetch method within the useEffect of the fronted/Pages/Home.js is typed as 
+ "/api/workouts/"  and not "http://localhost:4000/api/workouts/" 
+
+ apparently react will recognize "/api/workouts" as a static asset
+ ----------------------------------------------------------------------------------------------------------------------------------------
+                                                END OF NOTE 1
+ ----------------------------------------------------------------------------------------------------------------------------------------

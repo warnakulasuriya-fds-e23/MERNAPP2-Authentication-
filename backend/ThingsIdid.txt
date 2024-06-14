@@ -1,0 +1,13 @@
+to do this project first the backend folder was created and then the express module was installed
+the i ran the npm init - y command was run (was suppose to do this before i installed express :> but it seems like i'll work out) 
+then i globally installed the nodemon package
+
+
+created a .env file , what it basically does is, it holds private variables.
+To work with .env files had to npm install dotenv
+
+for establishing the connection with the mongoDB database it is necessary to add a package npm install mongoose
+and also a valid mongodb uri is required. If using mongoDB Atlas then the specific uri string must be copy pasted from the atlas website
+If using local server mongoDB, then just use mongodb://localhost:27017/<DatabaseName> in this case MernApp1 is the database name
+
+mongoose allows for the creation of schemas and structured models, mongodb byitself is actually schemaless

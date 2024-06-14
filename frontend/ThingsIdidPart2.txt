@@ -1,0 +1,4 @@
+first the front end was created using npx create-react-app frontend.
+Afterwards the unnecessary files were deleted
+
+next it was necessary to npm install react-router-dom
