@@ -20,9 +20,7 @@ const Home = () => {
       <div className="workouts">
         {workoutsArray &&
           workoutsArray.map((workout) => (
-            <>
-              <WorkoutDetails key={workout._id} workout={workout} />
-            </>
+            <WorkoutDetails key={workout._id} workout={workout} />
           ))}
       </div>
       <WorkoutForm />
