@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 export const AuthContext = createContext();
 
@@ -21,6 +21,12 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, {
     user: null,
   });
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("user"));
+    if (loggedInUser) {
+      dispatch({ type: "LOGIN", payload: loggedInUser });
+    }
+  }, []); //leaving the second argument as an empty array ensures that this function is fired once the component is initialized only
   console.log("Auth COntext: ", state);
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
