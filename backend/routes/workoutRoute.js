@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { RequireAuth } = require("../middleware/RequireAuth");
 const {
   createWorkout,
   getAllWorkouts,
@@ -7,6 +8,9 @@ const {
   deleteAWorkout,
   updateAWorkout,
 } = require("../controllers/workoutController");
+
+//Check for availabilty of valid to token and authorize the accessing of the rest of the routes
+router.use(RequireAuth);
 //GET all the workouts
 router.get("/", getAllWorkouts);
 

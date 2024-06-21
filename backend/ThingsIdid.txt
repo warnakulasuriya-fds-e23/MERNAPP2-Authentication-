@@ -11,3 +11,7 @@ and also a valid mongodb uri is required. If using mongoDB Atlas then the specif
 If using local server mongoDB, then just use mongodb://localhost:27017/<DatabaseName> in this case MernApp1 is the database name
 
 mongoose allows for the creation of schemas and structured models, mongodb byitself is actually schemaless
+
+APP2 stuff
+i added in the node package bcrypt to use it for the password hashing. This also provides a method to salt the password and salting is
+actually a requirement when using bcrypt to hash passwords
