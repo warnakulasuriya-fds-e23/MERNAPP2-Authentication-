@@ -1,7 +1,6 @@
 const validator = require("validator");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const { schema } = require("./workoutModel");
 
 const Schema = mongoose.Schema;
 
