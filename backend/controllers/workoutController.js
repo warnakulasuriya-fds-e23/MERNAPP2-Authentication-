@@ -35,6 +35,7 @@ const getAWorkout = async (req, res) => {
 //Create a workout (POST)
 const createWorkout = async (req, res) => {
   const { title, reps, load, supvisorRecomended } = req.body;
+  const user_Id = req.userFromMiddleWare._id;
   try {
     const emptyFields = [];
     if (!title) emptyFields.push("title");
@@ -48,12 +49,12 @@ const createWorkout = async (req, res) => {
       });
       return;
     }
-
     const newWorkout = await Workout.create({
       title,
       reps,
       load,
       supvisorRecomended,
+      user_Id,
     });
     res.status(200).json(newWorkout);
   } catch (err) {

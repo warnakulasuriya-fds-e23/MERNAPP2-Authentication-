@@ -13,7 +13,7 @@ const RequireAuth = async (req, res, next) => {
   const token = authorization.split(" ")[1];
   try {
     const { _id } = await jwt.verify(token, process.env.TOKENCODE);
-    req.userId = await User.findOne({ _id }).select("_id");
+    req.userFromMiddleWare = await User.findOne({ _id }).select("_id");
     next();
   } catch (error) {
     res.status(401).json({ error: error.message });
