@@ -18,6 +18,10 @@ const WorkoutsReducer = (state, action) => {
           (workout) => workout._id !== action.payload._id
         ),
       };
+    case "CLEAR_WORKOUTS":
+      return {
+        workoutsArray: null,
+      };
     default:
       return state;
   }
